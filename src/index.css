@@ -1,0 +1,181 @@
+/* Root variables and global styles */
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; /* Font settings */
+  line-height: 1.5; /* Line height for better readability */
+  font-weight: 400; /* Normal font weight */
+  color: rgba(255, 255, 255, 0.87); /* Light text color */
+  font-synthesis: none; /* Disable font synthesis */
+  text-rendering: optimizeLegibility; /* Improve text rendering */
+  -webkit-font-smoothing: antialiased; /* Smooth fonts in WebKit browsers */
+  -moz-osx-font-smoothing: grayscale; /* Smooth fonts in Firefox on macOS */
+  -webkit-text-size-adjust: 100%; /* Prevent font size adjustments after orientation changes in iOS */
+}
+
+/* Body styles */
+body {
+  margin: 0; /* Remove default margin */
+  display: flex; /* Flexbox layout */
+  place-items: center; /* Center items */
+  min-width: 320px; /* Minimum width */
+  min-height: 100vh; /* Minimum height */
+}
+
+/* Light mode styles */
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547; /* Dark text color */
+    background-color: #ffffff; /* Light background color */
+  }
+}
+
+/* Selected node styles */
+.react-flow__node.selected {
+  border: solid 3px rgb(40, 61, 222); /* Blue border */
+  border-radius: 7px; /* Rounded corners */
+}
+
+/* Right sidebar styles */
+.appflow .rightbar {
+  display: flex; /* Flexbox layout */
+  flex-direction: column; /* Column layout */
+  border: 1px solid black; /* Black border */
+  width: 30%; /* Width */
+}
+
+/* Save changes bar styles */
+.savingChange {
+  font-size: 12px; /* Small font size */
+  background: #fcfcfc; /* Light background */
+  color: rgba(20, 4, 4, 0.87); /* Dark text color */
+  padding: 15px 10px; /* Padding */
+  display: flex; /* Flexbox layout */
+  justify-content: center; /* Center content */
+  border-bottom: 2px solid grey; /* Bottom border */
+}
+
+/* Top bar styles */
+.topbar {
+  font-size: 12px; /* Small font size */
+  padding: 12px; /* Padding */
+  display: flex; /* Flexbox layout */
+  flex-grow: 1; /* Grow to fill available space */
+  justify-content: center; /* Center content */
+  border-bottom: 2px solid grey; /* Bottom border */
+}
+
+/* Update section styles */
+.update {
+  padding: 5px 15px; /* Padding */
+  font-size: 12px; /* Small font size */
+  border: 1px solid grey; /* Grey border */
+  color: rgba(0, 0, 0, 0.87); /* Dark text color */
+  display: flex; /* Flexbox layout */
+  flex-direction: column; /* Column layout */
+}
+
+/* Back button in update section */
+.update .back {
+  display: flex; /* Flexbox layout */
+  align-items: center; /* Center items vertically */
+  color: black; /* Black color */
+  justify-content: start; /* Align to start */
+}
+
+/* Error message styles */
+.redMessage {
+  color: black; /* Black text color */
+  background: lightcoral; /* Light coral background */
+  font-size: 12px; /* Small font size */
+  border-radius: 5px; /* Rounded corners */
+  padding: 10px; /* Padding */
+  font-weight: bold; /* Bold font weight */
+}
+
+/* Success message styles */
+.greenMessage {
+  color: black; /* Black text color */
+  background: lightgreen; /* Light green background */
+  font-size: 12px; /* Small font size */
+  border-radius: 5px; /* Rounded corners */
+  padding: 10px; /* Padding */
+  font-weight: bold; /* Bold font weight */
+}
+
+/* Main app flow container styles */
+.appflow {
+  flex-direction: column; /* Column layout */
+  display: flex; /* Flexbox layout */
+  flex-grow: 1; /* Grow to fill available space */
+  height: 40%; /* Height */
+}
+
+/* Sidebar styles */
+.appflow aside {
+  padding: 15px 10px; /* Padding */
+  font-size: 12px; /* Small font size */
+  background: #fcfcfc; /* Light background */
+  color-scheme: light dark; /* Light and dark color scheme */
+  color: rgba(255, 255, 255, 0.87); /* Light text color */
+  display: flex; /* Flexbox layout */
+}
+
+/* Description text styles */
+.appflow .description {
+  margin: 10px; /* Margin */
+  font-size: 12px; /* Small font size */
+  color: black; /* Black text color */
+}
+
+/* Node styles */
+.appflow .appnode {
+  border-radius: 8px; /* Rounded corners */
+  border: 1px solid transparent; /* Transparent border */
+  padding: 0.6em 1.2em; /* Padding */
+  font-size: 1em; /* Font size */
+  font-weight: 500; /* Medium font weight */
+  font-family: inherit; /* Inherit font family */
+  border: 1px solid black; /* Black border */
+  color: black; /* Black text color */
+  cursor: grab; /* Grab cursor */
+  transition: border-color 0.25s; /* Transition for border color */
+  display: flex; /* Flexbox layout */
+  justify-content: center; /* Center content */
+  align-items: center; /* Center items */
+  flex-direction: column; /* Column layout */
+  width: 90px; /* Width */
+}
+
+/* Hover state for nodes */
+.appnode:hover {
+  border-color: #646cff; /* Change border color on hover */
+}
+
+/* Focus state for nodes */
+.appnode:focus,
+.appnode:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color; /* Outline for focus state */
+}
+
+/* React Flow wrapper styles */
+.appflow .reactflow-wrapper {
+  flex-grow: 1; /* Grow to fill available space */
+  height: 80%; /* Height */
+}
+
+/* Select all section styles */
+.appflow .selectall {
+  margin-top: 10px; /* Margin */
+}
+
+/* Responsive styles for larger screens */
+@media screen and (min-width: 768px) {
+  .appflow {
+    display: flex; /* Flexbox layout */
+    flex-direction: row; /* Row layout */
+  }
+
+  .rightbar {
+    width: 20%; /* Width */
+    max-width: 250px; /* Maximum width */
+  }
+}
