@@ -37,7 +37,7 @@ const AddNodeButton = ({ data }) => {
           <span
             // Style the icon with specific font size and padding
             className="material-symbols-outlined"
-            style={{ fontSize: 13, paddingRight: 7, paddingTop: 5 }}
+            style={{ fontSize: 10, paddingRight: 5, paddingTop: 2 }}
           >
             chat
           </span>

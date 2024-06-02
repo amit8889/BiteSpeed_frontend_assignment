@@ -56,7 +56,7 @@ body {
 /* Top bar styles */
 .topbar {
   font-size: 12px; /* Small font size */
-  padding: 12px; /* Padding */
+  padding: 0; /* Padding */
   display: flex; /* Flexbox layout */
   flex-grow: 1; /* Grow to fill available space */
   justify-content: center; /* Center content */
@@ -80,33 +80,12 @@ body {
   color: black; /* Black color */
   justify-content: start; /* Align to start */
 }
-
-/* Error message styles */
-.redMessage {
-  color: black; /* Black text color */
-  background: lightcoral; /* Light coral background */
-  font-size: 12px; /* Small font size */
-  border-radius: 5px; /* Rounded corners */
-  padding: 10px; /* Padding */
-  font-weight: bold; /* Bold font weight */
-}
-
-/* Success message styles */
-.greenMessage {
-  color: black; /* Black text color */
-  background: lightgreen; /* Light green background */
-  font-size: 12px; /* Small font size */
-  border-radius: 5px; /* Rounded corners */
-  padding: 10px; /* Padding */
-  font-weight: bold; /* Bold font weight */
-}
-
 /* Main app flow container styles */
 .appflow {
   flex-direction: column; /* Column layout */
   display: flex; /* Flexbox layout */
   flex-grow: 1; /* Grow to fill available space */
-  height: 40%; /* Height */
+  height: 40%; /* Height */ 
 }
 
 /* Sidebar styles */
@@ -115,8 +94,8 @@ body {
   font-size: 12px; /* Small font size */
   background: #fcfcfc; /* Light background */
   color-scheme: light dark; /* Light and dark color scheme */
-  color: rgba(255, 255, 255, 0.87); /* Light text color */
-  display: flex; /* Flexbox layout */
+  color: rgba(238, 215, 215, 0.87); /* Light text color */
+  display: flex; /* Flexbox layout */ 
 }
 
 /* Description text styles */
@@ -159,7 +138,7 @@ body {
 /* React Flow wrapper styles */
 .appflow .reactflow-wrapper {
   flex-grow: 1; /* Grow to fill available space */
-  height: 80%; /* Height */
+  height: 90%; /* Height */
 }
 
 /* Select all section styles */

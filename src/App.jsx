@@ -3,14 +3,16 @@ import ReactFlow, {
   addEdge,
   useNodesState as useCustomNodesState,
   useEdgesState as useCustomEdgesState,
+  Background,
   Controls,
+  MiniMap 
 } from 'reactflow';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { useState, useRef, useCallback, useMemo } from 'react';
-
 import 'reactflow/dist/style.css';
 import Sidebar from './components/Sidebar';
 import UpdateNode from './components/UpdateNode';
-import AlertMessage from './components/AlertMessage';
 import AddNodeButton from './components/AddNodeButton';
 import './index.css';
 import TopNav from './components/TopNav';
@@ -24,8 +26,6 @@ const App = () => {
   const [reactFlowInstance, setReactFlowInstance] = useState(null);
   const [nodeSelected, setNodeSelected] = useState(false);
   const [selectedNode, setSelectedNode] = useState(null);
-  const [errorMessage, setErrorMessage] = useState(null);
-  const [messageColor, setMessageColor] = useState(null);
   const [targetHandles, setTargetHandles] = useState([]);
 
   // Update node selection
@@ -43,7 +43,7 @@ const App = () => {
       if (sourceHandles.includes(params.source)) return;
       sourceHandles = sourceHandles.concat(params.source);
       setCustomEdges((eds) =>
-        addEdge({ ...params, markerEnd: { type: 'arrowclosed' } }, eds)
+        addEdge({ ...params, animated: true ,markerEnd: { type: 'arrowclosed' } }, eds)
       );
       if (targetHandle.includes(params.target)) return;
       targetHandle = targetHandle.concat(params.target);
@@ -93,35 +93,30 @@ const App = () => {
     }),
     []
   );
-
   // Save the flow and check for errors
   const saveFlow = () => {
     const totalNodes = reactFlowInstance.getNodes().length;
-    if (targetHandles.length !== totalNodes - 1) {
-      setErrorMessage('Cannot save Flow');
-      setMessageColor('redMessage');
-      setTimeout(() => {
-        setErrorMessage(null);
-      }, 5000);
-    } else {
-      setErrorMessage('Saved Flow');
-      setMessageColor('greenMessage');
-      setTimeout(() => {
-        setErrorMessage(null);
-      }, 5000);
+    let notification = {
+        position: "top-left",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
     }
-  };
+    if (targetHandles.length !== totalNodes - 1) {
+        toast.success("Saved Successfully!!!!",notification)
+    } else {
+      toast.error("Inavlid Flow !!!!",notification)
+  }
+}
 
   return (
     <div className="appflow" style={{ width: '100vw', height: '100vh' }}>
       <ReactFlowProvider>
-        <div className="reactflow-wrapper" ref={reactFlowWrapper}>
-          <div className="topbar">
-            <AlertMessage
-              errorMessage={errorMessage}
-              messageColor={messageColor}
-            />
-          </div>
+         <div className="reactflow-wrapper" ref={reactFlowWrapper}>
           <ReactFlow
             nodes={customNodes}
             edges={customEdges}
@@ -137,6 +132,8 @@ const App = () => {
             nodeTypes={nodeTypes}
           >
             <Controls />
+            <Background/>
+            <MiniMap />
           </ReactFlow>
         </div>
         {nodeSelected ? (
@@ -155,6 +152,18 @@ const App = () => {
           </div>
         )}
       </ReactFlowProvider>
+      <ToastContainer 
+       position="top-left"
+       autoClose={5000}
+       hideProgressBar={false}
+       newestOnTop
+       closeOnClick
+       rtl={false}
+       pauseOnFocusLoss
+       draggable
+       pauseOnHover
+       theme="light"
+      />
     </div>
   );
 };
